@@ -1,6 +1,10 @@
-// import ListItem from "app/_components/list-item";
+import ListItem from "app/_components/list-item";
+import { getTodos } from "app/_actions/get-todos";
+import { createTodo } from "app/_actions/create-todo";
 
 const HomePage = async () => {
+  const todos = await getTodos();
+
   return (
     <main className="m-auto flex h-dvh max-w-xl flex-col">
       <h1 className="flex items-center justify-between p-4 text-xl font-bold">
@@ -14,15 +18,11 @@ const HomePage = async () => {
         </a>
       </h1>
       <ul className="flex-grow overflow-auto p-4 py-0">
-        {/* <ListItem todo={todo} /> */}
-        {/* {todos.map((todo) => (
-          <li className="bg-gray-100 p-2 my-2" key={todo.id}>{todo.text}</li>
-        ))} */}
+        {todos.map((todo) => (
+          <ListItem todo={todo} />
+        ))}
       </ul>
-      <form
-        className="flex gap-3 p-4"
-        //  action={submit}
-      >
+      <form className="flex gap-3 p-4" action={createTodo}>
         <input
           className="w-full rounded-xl border border-gray-400 p-2 px-4 text-base"
           type="text"
