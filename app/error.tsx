@@ -12,7 +12,7 @@ const Error = ({ error, reset }: ErrorProps) => {
     <div className="flex h-screen w-screen items-center justify-center">
       <div className="flex flex-col items-center gap-12">
         <h2 className="text-2xl">There is a problem!</h2>
-        <pre className="w-5/6 whitespace-pre-wrap bg-black text-center text-white">
+        <pre className="inline-block w-5/6 whitespace-pre-wrap rounded-md bg-[#EDF2F7] text-center text-[#1A202C] shadow-xl">
           {error.message}
         </pre>
         <h4 className="text-lg">
