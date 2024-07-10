@@ -9,6 +9,7 @@
     "lint": "eslint --fix",
     "fix": "prettier --write .",
     "check-prettier": "prettier . --check",
+    "migrate:push": "npx drizzle-kit push",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -19,10 +20,14 @@
   "devDependencies": {
     "@eslint/compat": "^1.1.0",
     "@eslint/js": "^9.6.0",
+    "@neondatabase/serverless": "^0.9.4",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "babel-plugin-react-compiler": "^0.0.0-experimental-696af53-20240625",
+    "dotenv": "^16.4.5",
+    "drizzle-kit": "^0.22.8",
+    "drizzle-orm": "^0.31.4",
     "eslint": "9.x",
     "eslint-config-next": "^14.2.4",
     "eslint-config-prettier": "^9.1.0",
