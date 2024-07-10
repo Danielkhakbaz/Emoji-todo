@@ -1,4 +1,5 @@
 import ListItem from "app/_components/list-item";
+import SendButton from "app/_components/send-button";
 import { getTodos } from "app/_actions/get-todos";
 import { createTodo } from "app/_actions/create-todo";
 
@@ -33,9 +34,7 @@ const HomePage = async () => {
           maxLength={10}
           required
         />
-        <button className="rounded-xl bg-blue-500 px-4 py-2 font-bold text-white">
-          ✉️
-        </button>
+        <SendButton />
       </form>
     </main>
   );
