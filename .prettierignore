@@ -1,26 +1,23 @@
 # dependencies
 /node_modules
-/.pnp
-.pnp.js
-.yarn/install-state.gz
 
-# testing
-/coverage
-
-# next.js
-/.next/
-
-# misc
-.DS_Store
-*.pem
+# build
+.next
 
 # debug
 yarn-debug.log*
 yarn-error.log*
 
 # local env files
+.env
 .env*.local
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
+react-app-env.d.ts
+
+# husky
+.husky
+
+# vscode
+.vscode
