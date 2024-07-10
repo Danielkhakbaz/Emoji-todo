@@ -1,37 +1,26 @@
 "use client";
 
-import { useState } from "react";
-import Spinner from "utils/components/spinner";
-import { deleteTodo } from "app/_actions/delete-todo";
+import { useOptimistic } from "react";
+import Item from "app/_components/list-item/item";
 
 type ListItemProps = {
-  todo: {
+  todos: {
     id: number;
     text: string;
-  };
+  }[];
 };
 
-const ListItem = ({ todo }: ListItemProps) => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-
-  const handleDeleteButton = () => {
-    setIsLoading(true);
-
-    deleteTodo(todo.id).finally(() => {
-      setIsLoading(false);
-    });
-  };
+const ListItem = ({ todos }: ListItemProps) => {
+  const [optimisticState, addOptimistic] = useOptimistic(todos, (state, id) =>
+    state.filter((item) => item.id !== id)
+  );
 
   return (
-    <li
-      key={todo.id}
-      className="my-2 bg-gray-100 p-2 hover:cursor-pointer hover:line-through"
-      onClick={handleDeleteButton}
-    >
-      <p className="flex items-center gap-1">
-        {todo.text} {isLoading && <Spinner className="h-4 w-4" />}
-      </p>
-    </li>
+    <ul className="flex-grow overflow-auto p-4 py-0">
+      {optimisticState.map((todo) => (
+        <Item key={todo.id} todo={todo} addOptimistic={addOptimistic} />
+      ))}
+    </ul>
   );
 };
 

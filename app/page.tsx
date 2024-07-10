@@ -18,11 +18,7 @@ const HomePage = async () => {
           source
         </a>
       </h1>
-      <ul className="flex-grow overflow-auto p-4 py-0">
-        {todos.map((todo) => (
-          <ListItem todo={todo} />
-        ))}
-      </ul>
+      <ListItem todos={todos} />
       <form className="flex gap-3 p-4" action={createTodo}>
         <input
           className="w-full rounded-xl border border-gray-400 p-2 px-4 text-base"
